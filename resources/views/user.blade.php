@@ -2,9 +2,9 @@
 @section('content')
     <div class="flex flex-col flex-1 w-full pb-16">
         <div class="flex justify-center md:justify-end text-[26px] p-0 md:pr-24">
-                <p class="text-[30px] md:text-[32px]" >
-                    @lang('nav.G_Ezizow')    
-                </p>                    
+            <p class="text-[30px] md:text-[32px]" >
+                @lang('nav.G_Ezizow')    
+            </p>                    
         </div>
         <div class="relative flex flex-col justify-center px-2 pb-16 md:px-16 md:gap-12 md:flex-row">
             <div class="flex items-center justify-center flex-1">
@@ -37,9 +37,7 @@
             @include('userPages.galleries')
         @endif
         <div class="footer h-[100px] w-full flex justify-center items-center ">
-            <h1 class="text-black text-[28px]">
-               
-            </h1>
+            <h1 class="text-black text-[28px]"></h1>
         </div>
     </div>
 @endsection

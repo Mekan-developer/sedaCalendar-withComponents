@@ -6,12 +6,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Dashboard') }}</title>
     <link rel="shortcut icon" href="{{  asset('icons/logo.png')}}" type="image/x-icon">
-
+    
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.4.1/tinymce.min.js" integrity="sha512-c46AnRoKXNp7Sux2K56XDjljfI5Om/v1DvPt7iRaOEPU5X+KZt8cxzN3fFzemYC6WCZRhmpSlZvPA1pttfO9DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <style>
         *{
             font-family: "Nunito", serif;
@@ -19,7 +18,6 @@
             font-weight: 500;
             font-style: normal;
         }
-
         .lang-col{
             flex-direction: column;
             justify-content: center;
@@ -60,31 +58,11 @@
                         </div>
                     </div>
                     <ul class="capitalize nav_list">
-                        <li>
-                            <a class="{{ Request::is('admin/poem*') ? 'bg-[#fff]' : '' }}" href="{{route('admin.poem')}}">
-                                <i class="bx bx-book-open {{ Request::is('admin/poem*') ? 'text-[#11101d]' : '' }}"></i>
-                                <span  class="links_name {{ Request::is('admin/poem*') ? 'text-[#11101d]' : '' }}">{{__('nav.poems')}}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="{{ Request::is('admin/audio-poem*') ? 'bg-[#fff]' : '' }}" href="{{route('admin.audioPoem')}}"> 
-                                <i class="bx bx-music {{ Request::is('admin/audio-poem*') ? 'text-[#11101d]' : '' }}" ></i>
-                                <span class="links_name {{ Request::is('admin/audio-poem*') ? 'text-[#11101d]' : '' }}">{{__('nav.audio_poems')}}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="{{ Request::is('admin/gallery*') ? 'bg-[#fff]' : '' }}" href="{{route('admin.gallery')}}">
-                                <i class='bx bx-photo-album {{ Request::is('admin/gallery*') ? 'text-[#11101d]' : '' }}' ></i>
-                                <span class="links_name {{ Request::is('admin/gallery*') ? 'text-[#11101d]' : '' }}">{{__('nav.galleries')}}</span>
-                            </a>
-                        </li>
+                        <x-admin.nav-li route="poem" langs="poems"/>
+                        <x-admin.nav-li class="bx-music" route="audioPoem" langs="audio_poems"/>
+                        <x-admin.nav-li class="bx-photo-album" route="gallery" langs="galleries"/>
                         @if(auth()->user()->is_admin === 1)
-                            <li>
-                                <a class="{{ Request::is('admin/controll*') ? 'bg-[#fff]' : '' }}" href="{{route('admin.controll')}}">
-                                    <i class='bx bx-user-plus {{ Request::is('admin/controll*') ? 'text-[#11101d]' : '' }}'></i>
-                                    <span class="links_name {{ Request::is('admin/controll*') ? 'text-[#11101d]' : '' }}">{{__('nav.create_admin')}}</span>
-                                </a>
-                            </li>
+                            <x-admin.nav-li class="bx-user-plus" route="controll" langs="create_admin"/>
                         @endif 
                     </ul>
                     <div class="profile_content">
