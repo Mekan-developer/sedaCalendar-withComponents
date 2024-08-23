@@ -32,16 +32,16 @@
 
 <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 <script>
-tinymce.init({
-    selector:'textarea.text_tm',
-    maxwidth: 600,
-    height: 300
-});
-tinymce.init({
-    selector:'textarea.text_ru',
-    maxwidth: 600,
-    height: 300
-});
+    tinymce.init({
+        selector:'textarea.text_tm',
+        maxwidth: 600,
+        height: 300
+    });
+    tinymce.init({
+        selector:'textarea.text_ru',
+        maxwidth: 600,
+        height: 300
+    });
 </script> 
 <script>
     function hideModal() {
